@@ -4,6 +4,8 @@ const weatherForm = document.querySelector(".weatherForm");
 const cityInput = document.querySelector(".cityInput");
 const card = document.querySelector(".card");
 const apiKey = "08bb86f4cdf411f2baf86011b07153c8";
+const spinner = document.querySelector(".spinner"); //Select Spinner
+const errorDisplay = document.querySelector(".error") //Select Error Display
 
 weatherForm.addEventListener("submit", async event => 
 {
@@ -13,22 +15,37 @@ weatherForm.addEventListener("submit", async event =>
     
     if(city){
         try{
+            // Shows the spinner while fetching 
+            spinner.style.display = "block";
+            card.style.display = "none";
+            errorDisplay.style.display = "none";
+
             const weatherData = await getWeatherData(city);
             displayWeatherInfo(weatherData);
+            
+            //Hide spinner after data is fetched
+            spinner.style.display = "none";
+       
         }
         catch(error)
         {
             console.error(error);
             displayError(error);
         }
+    finally{
+        //Hide the spinner
+        spinner.style.display = "none";
+    }    
     }
     else{
         displayError("Please enter a city");
+        spinner.style.display = "none"; //hide spinner
     }
 });
 
 async function getWeatherData(city)
 {
+    try{
     const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`
 
     const response = await fetch(apiUrl); //fetch function
@@ -36,7 +53,14 @@ async function getWeatherData(city)
         throw new Error("Could not fetch weather data");
 
     }
+    //2 SEC TIMER FOR SPINNER TO BE SHOWN
+    await new Promise(resolve => setTimeout (resolve, 1000));
     return await response.json(); 
+    }
+    catch(error){
+    
+        throw new Error("Network Error: Please check your connection");
+    } 
 }
 
 function displayWeatherInfo(data)
@@ -81,19 +105,19 @@ function getWeatherEmoji(weatherID)
     switch(true)
     {
         case (weatherID >= 200 && weatherID < 300):
-            return "⛈️";
+            return "⛈️"; // Thunderstorms
         case (weatherID >= 300 && weatherID < 400):
-            return "🌧️";    
+            return "🌧️"; // Drizzle
         case (weatherID >= 500 && weatherID < 600):
-            return "🌧️";
+            return "🌧️"; // Rain
         case (weatherID >= 600 && weatherID < 700):
-            return "❄️";
+            return "❄️"; // Snow
         case (weatherID >= 700 && weatherID < 800):
-            return "🌫️";
+            return "🌫️";// Fog
         case (weatherID == 800):
-            return "🌞";
+            return "🌞"; //Clear Sky
         case (weatherID >= 801 && weatherID < 810):
-            return "⛅️";
+            return "⛅️"; //Cloudy
         default: 
             return "❓";      
     }
@@ -101,12 +125,32 @@ function getWeatherEmoji(weatherID)
 }
 
 function displayError(message)
-{
-    const errorDisplay = document.createElement("p");
-    errorDisplay.textContent = message;
-    errorDisplay.classList.add("errorDisplay");
+{   // Will hide card and spinner, shows error message
+   card.style.display = "none"; // Hide the weather card
+   spinner.style.display = "none"; // hide the spinner
+   
+   //Error container
+   let errorDisplay = document.querySelector(".error")
 
-    card.textContent = "";
+
+   //checks if error display exist; if not, create error message element container
+    if (!errorDisplay){
+    errorDisplay = document.createElement("div");
+    errorDisplay.classList.add("error");
+   //Error message appear to the body of page
+   document.body.appendChild(errorDisplay); //append the new error container
+      }
+
+      //Create a paragraph for the error message
+      const errorMessage = document.createElement("p");
+    errorMessage.textContent = message;
+
+    //apppend the error message to the error container
+      errorDisplay.textContent = "";
+      errorDisplay.appendChild(errorMessage);
+    //Make the error message visible
+    errorDisplay.style.display = "block"; //checks if error message is displayed
+   /* card.textContent = "";
     card.style.display = "flex";
-    card.appendChild(errorDisplay);
-}
+*/
+ }
