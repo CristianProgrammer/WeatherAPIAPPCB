@@ -3,7 +3,7 @@
 const weatherForm = document.querySelector(".weatherForm");
 const cityInput = document.querySelector(".cityInput");
 const card = document.querySelector(".card");
-const apiKey = "08bb86f4cdf411f2baf86011b07153c8";
+const apiKey = "ffc1bd75e309600a1edfe8ee6b221569";
 const spinner = document.querySelector(".spinner"); //Select Spinner
 const errorDisplay = document.querySelector(".error") //Select Error Display
 
