@@ -1,8 +1,10 @@
 # Weather App
 
-A web app that shows live weather for any city using the OpenWeatherMap API, built with vanilla JavaScript, HTML, and CSS.
+A web app that shows live weather for any city using the OpenWeatherMap API, built with JavaScript, HTML, and CSS.
 
-![Weather App showing current conditions for New York](screenshot.png)
+<img width="350" height="410" alt="Weather App showing current conditions for New York" src="https://github.com/user-attachments/assets/754ba67f-dc90-4a41-9263-57fbb7b11e2f" />
+
+*Weather App showing current conditions for New York*
 
 ## Features
 
@@ -14,7 +16,7 @@ A web app that shows live weather for any city using the OpenWeatherMap API, bui
 
 ## Built With
 
-- JavaScript (vanilla)
+- JavaScript
 - HTML
 - CSS
 - OpenWeatherMap API
