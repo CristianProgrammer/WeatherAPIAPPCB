@@ -1,29 +1,31 @@
-#Weather Api App PROJECT
-This is a weather project I made while learning programming.
-The project connects to the OpenWeatherMap API and retrieves live weather information for any city entered.
-I built this project as practice to improve my programming skills after graduating with a Computer Science degree.
+# Weather App
 
-## Technologies I used:
-- JavaScript (Vanilla JS)
+A web app that shows live weather for any city using the OpenWeatherMap API, built with vanilla JavaScript, HTML, and CSS.
+
+## Features
+
+- Fetches live weather data from the OpenWeatherMap API
+- Displays city name, temperature (°F), humidity, and weather description
+- Shows a weather emoji based on current conditions
+- Loading spinner while data is being fetched
+- Error handling for invalid city names
+
+## Built With
+
+- JavaScript (vanilla)
 - HTML
 - CSS
 - OpenWeatherMap API
 
-## How to Run:
-1. Clone or downlaod the repository
-2. Open "index.html" in a web browser
-3. Enter a city in the textbox and click button "Get Weather"
-4. View the temperature, humidiity, description,and weather emoji
+## How to Run
 
-## Features:
-- Fetches live weather data from OpenWeatherMap API
-- Displays city name, temperature (°F), humidity, and weather description
-- Shows weather emoji based on conditions
-- Loading spinner while fetching data
-- Error handling for invalid city names
-  
+1. Clone or download the repository
+2. Open `index.html` in a web browser
+3. Enter a city in the text box and click **Get Weather**
+4. View the temperature, humidity, description, and weather emoji
 
-## Future improvements:
+## Future Improvements
+
 - Improve design and styling
-- Add more detailed weather infromation (wind, pressure, etc.) 
-- Make it mobile-responsive for phones and tablets
+- Add more weather details (wind, pressure, and more)
+- Make the layout mobile-responsive
