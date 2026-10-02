@@ -2,6 +2,8 @@
 
 A web app that shows live weather for any city using the OpenWeatherMap API, built with vanilla JavaScript, HTML, and CSS.
 
+![Weather App showing current conditions for New York](screenshot.png)
+
 ## Features
 
 - Fetches live weather data from the OpenWeatherMap API
@@ -12,7 +14,7 @@ A web app that shows live weather for any city using the OpenWeatherMap API, bui
 
 ## Built With
 
-- JavaScript
+- JavaScript (vanilla)
 - HTML
 - CSS
 - OpenWeatherMap API
@@ -20,9 +22,10 @@ A web app that shows live weather for any city using the OpenWeatherMap API, bui
 ## How to Run
 
 1. Clone or download the repository
-2. Open `index.html` in a web browser
-3. Enter a city in the text box and click **Get Weather**
-4. View the temperature, humidity, description, and weather emoji
+2. Get a free API key at [openweathermap.org](https://openweathermap.org) and add it in `index.js`
+3. Open `index.html` in a web browser
+4. Enter a city in the text box and click **Get Weather**
+5. View the temperature, humidity, description, and weather emoji
 
 ## Future Improvements
 
