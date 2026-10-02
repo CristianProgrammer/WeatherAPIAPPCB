@@ -12,7 +12,7 @@ A web app that shows live weather for any city using the OpenWeatherMap API, bui
 
 ## Built With
 
-- JavaScript (vanilla)
+- JavaScript
 - HTML
 - CSS
 - OpenWeatherMap API
